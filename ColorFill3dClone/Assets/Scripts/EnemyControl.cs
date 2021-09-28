@@ -50,8 +50,7 @@ public class EnemyControl : MonoBehaviour
                 {
                     if (FindObjectOfType<PlayerController>() && FindObjectOfType<PlayerController>().isAlive)
                     {
-                        Debug.Log("Player çarptı enmy");
-                        // LevelManager.instance.Die();  // En son yorum satırı kaldırılacak 
+                        LevelManager.instance.Die(); 
                     }
                        
                 }

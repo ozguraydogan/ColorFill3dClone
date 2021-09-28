@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour
             GridControl element = hit.transform.GetComponent<GridControl>();
             if (element)
             {
-                Debug.Log("Grids Bulundu");
                 if (element._gridType == global::GridControl.GridType.Empty)
                 {
                     element.SetAsTrail();
@@ -59,7 +58,6 @@ public class PlayerController : MonoBehaviour
                 {
                     if (element._gridType == global::GridControl.GridType.Wall)
                     {
-                        Debug.Log("Duvara Çarptı");
                         _direction = Direction.NoDirection;
                         isTrue = false;
                     }
@@ -79,8 +77,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (element._gridType == global::GridControl.GridType.TrailFill)
                 {
-                    Debug.Log("Level Manager çalışacak");
-                    //LevelManager.instance.Die; // level manager aktif olunca aktif olucak
+                    LevelManager.instance.Die();
                 }
 
                 if (element._gridType == global::GridControl.GridType.Wall || element._gridType == global::GridControl.GridType.ColorFilled)
@@ -92,8 +89,7 @@ public class PlayerController : MonoBehaviour
                         {
                             if (element._gridType == global::GridControl.GridType.TrailFill || element._gridType == global::GridControl.GridType.ColorFilled)
                             {
-                                Debug.Log("alan hesabı olacak");
-                                  //Kenarları aradaki alanı doldurma
+                                //FloodFill 
                                 LevelManager.instance.CheckFilledCellCount();
                             }
                         }
