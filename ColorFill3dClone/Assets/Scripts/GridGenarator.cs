@@ -9,6 +9,8 @@ public class GridGenarator : MonoBehaviour
     
     [SerializeField] private GameObject gridPrefab;
     public int[,] fillArea;
+    public GameObject[,] gridList;
+    
     void Start()
     {
         fillArea = new int[row, col];

@@ -8,11 +8,10 @@ public class EnemyControl : MonoBehaviour
     [SerializeField] private Vector3 target;
     private Vector3 targetFirsPosition;
     private Vector3 startPosition;
+    
     [Range(0,10)]
     [SerializeField] private float speed;
-
-
-    // Update is called once per frame
+    
     private void Start()
     {
         startPosition = transform.position;
@@ -51,6 +50,7 @@ public class EnemyControl : MonoBehaviour
                 {
                     if (FindObjectOfType<PlayerController>() && FindObjectOfType<PlayerController>().isAlive)
                     {
+                        Debug.Log("Player çarptı enmy");
                         // LevelManager.instance.Die();  // En son yorum satırı kaldırılacak 
                     }
                        

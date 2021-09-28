@@ -11,8 +11,6 @@ public class GridControl : MonoBehaviour
     
     public GridControl[] Neighbors;
 
-    public static List<GridControl> Tail = new List<GridControl>();
-
 
     public void ChangeColor()
     {
@@ -28,11 +26,22 @@ public class GridControl : MonoBehaviour
             GetComponent<Renderer>().material = TrailMat;
     }
     
-    public void SetAsTrail() // Set as trail == iz olarak ayarla
+    public void SetAsTrail() 
     {
         _gridType = GridType.TrailFill;
-        Tail.Add(this);
         ChangeColor();
+    }
+    
+    public void FloodFill(int x, int y)
+    {
+        if (x >= 0 && x < 5 && y >= 0 && y < 9)
+        {
+                //girid map çağırılacak
+                FloodFill(x + 1, y);
+                FloodFill(x - 1, y);
+                FloodFill(x, y + 1);
+                FloodFill(x, y - 1);
+            }
     }
 
     public enum GridType

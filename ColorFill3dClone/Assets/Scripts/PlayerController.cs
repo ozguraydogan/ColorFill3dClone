@@ -93,8 +93,8 @@ public class PlayerController : MonoBehaviour
                             if (element._gridType == global::GridControl.GridType.TrailFill || element._gridType == global::GridControl.GridType.ColorFilled)
                             {
                                 Debug.Log("alan hesabı olacak");
-                                //element.FindSmallestEnclosedAreaAndFillIt();  //Kenarları aradaki alanı doldurma
-                                //LevelManager.instance.CheckFilledCellCount(); // Grid sistemini kontrol etme dolu mu diye
+                                  //Kenarları aradaki alanı doldurma
+                                LevelManager.instance.CheckFilledCellCount();
                             }
                         }
                     }
@@ -142,6 +142,7 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+   
     
 
     private  IEnumerator MovePlayer(Vector3 direction)
